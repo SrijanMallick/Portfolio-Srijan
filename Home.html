@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Srijan Mallick Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(to right, #000033, #1a1a40);
+        display: block;
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+
+      header {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: auto;
+      }
+
+      .logo {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      nav {
+        display: flex;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      nav ul li {
+        list-style: none;
+        margin: 0 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        transition: color 0.3s, font-size 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #ffdd57;
+        font-size: 1.1rem;
+      }
+
+      .cta-header {
+        background: #ffdd57;
+        color: #000033;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-left: 20px;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .cta-header:hover {
+        background: #ffd700;
+        transform: scale(1.1);
+      }
+
+      .firstSection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 80px 0;
+      }
+
+      .firstSection > div {
+        width: 40%;
+      }
+
+      .leftSection {
+        font-size: 4rem;
+        font-weight: bold;
+        background: linear-gradient(45deg, #6a5acd, #00fa9a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      .rightSection img {
+        width: 80%;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+      }
+
+      .cta-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        color: white;
+        background: #1e90ff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .cta-btn:hover {
+        background: #4169e1;
+        transform: scale(1.1);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: rgba(4, 4, 4, 0.8);
+        margin-top: 50px;
+      }
+
+      footer a {
+        color: #00acee;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: lavender;
+      }
+
+      @media (max-width: 768px) {
+        .firstSection {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .firstSection > div {
+          width: 90%;
+          text-align: center;
+        }
+
+        nav ul {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">SRIJAN MALLICK</div>
+        <nav>
+          <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Experience.html">Experience</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Contact.html">Contact Me</a></li>
+          </ul>
+        </nav>
+        <a href="https://linkedin.com/in/your-profile" class="cta-header">Get in Touch</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="firstSection">
+        <div class="leftSection">
+          Hi! My name is Srijan Mallick
+          <div></div>
+          <span id="element"></span>
+          <button class="cta-btn">Explore More</button>
+        </div>
+
+        <div class="rightSection">
+          <img
+            src="image/pngtree-software-developer-in-colored-design-png-image_12964470-removebg-preview.png"
+            alt="This is my Image"
+          />
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © 2025 Srijan Mallick | Follow me on
+        <a href="https://linkedin.com/in/your-profile">LinkedIn</a> and
+        <a href="https://github.com/your-profile">Instagram</a>.
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
+        strings: [
+          "<i>WELCOME TO</i>",
+          "MY WEBSITE.",
+          "<i>EXPLORE MY WORK</i>",
+          "CONNECT WITH ME!",
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true,
+      });
+    </script>
+  </body>
+</html>
