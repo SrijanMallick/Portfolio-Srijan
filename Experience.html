@@ -21,7 +21,7 @@
       header {
         background: linear-gradient(90deg, #1e3c72, #2a5298);
         padding: 20px 0;
-        position: sticky;
+        position: static;
         top: 0;
         z-index: 1000;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -42,6 +42,10 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
       }
 
+      nav {
+        display: flex;
+      }
+
       nav ul {
         display: flex;
         justify-content: center;
@@ -54,7 +58,7 @@
       }
 
       nav ul li a {
-        text-decoration: none !important; /* Remove text decoration */
+        text-decoration: none;
         color: white;
         font-size: 1rem;
         transition: color 0.3s, font-size 0.3s;
@@ -63,6 +67,31 @@
       nav ul li a:hover {
         color: #ffdd57;
         font-size: 1.1rem;
+      }
+
+      .cta-header {
+        display: inline-block;
+        background: #ffdd57;
+        color: #000033;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-left: 20px;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .cta-header:hover {
+        background: #ffd700;
+        transform: scale(1.1);
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: white;
       }
 
       main {
@@ -151,7 +180,7 @@
         color: lavender;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 825px) {
         section {
           flex-direction: column;
           align-items: center;
@@ -165,16 +194,64 @@
         section .logo-container {
           margin-top: 20px;
         }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background: rgba(30, 60, 114, 0.9);
+          width: 200px;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+          flex-direction: column;
+          text-align: left;
+          padding: 10px 0;
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        nav ul li a {
+          font-size: 1rem;
+          padding: 10px;
+          display: block;
+          transition: all 0.3s;
+        }
+
+        nav ul::after {
+          content: "";
+          display: block;
+        }
+
+        .menu-toggle.active + nav {
+          display: flex;
+        }
+
+        .cta-header {
+          display: none;
+        }
       }
+
+
     </style>
   </head>
   <body>
     <header>
       <div class="header-container">
-        <div class="logo">Srijan Mallick</div>
+        <div class="logo">SRIJAN MALLICK</div>
+        <div class="menu-toggle">&#9776;</div>
         <nav>
           <ul>
-            <li><a href="Home.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="Experience.html">Experience</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
@@ -183,6 +260,7 @@
         </nav>
       </div>
     </header>
+
 
     <main>
       <section>
@@ -202,7 +280,7 @@
         </div>
         <div class="logo-container">
           <a href="https://www.instagram.com/slayyin.co/" target="_blank">
-            <img src="image/Slayyin.jpg" alt="SLAYYIN Logo" />
+            <img src="/Slayyin.jpg" alt="SLAYYIN Logo" />
           </a>
         </div>
       </section>
@@ -225,7 +303,7 @@
         <div class="logo-container">
           <a href="https://www.nitagartala.ac.in" target="_blank">
             <img
-              src="image/Board Of Technical Council Gymkhana Tech 20240120_101148.jpg"
+              src="/Board Of Technical Council Gymkhana Tech 20240120_101148.jpg"
               alt="Board of Technical Community Logo"
             />
           </a>
@@ -249,7 +327,7 @@
         </div>
         <div class="logo-container">
           <a href="https://www.indianrailways.gov.in" target="_blank">
-            <img src="image/railwayslogo.png" alt="Indian Railways Logo" />
+            <img src="/railwayslogo.png" alt="Indian Railways Logo" />
           </a>
         </div>
       </section>
@@ -257,10 +335,30 @@
 
     <footer>
       <p>
-        © 2025 Srijan Mallick | Follow me on
-        <a href="https://linkedin.com/in/your-profile">LinkedIn</a> and
-        <a href="https://github.com/your-profile">GitHub</a>.
+        Created by Srijan Mallick | Follow me on
+        <a href="https://linkedin.com/in/SrijanMallick">LinkedIn</a> and
+        <a href="https://instagram.com/srijanmallick_">Instagram</a>.
       </p>
     </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("nav");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+      });
+
+      document.querySelectorAll("nav ul li a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.style.display = "none";
+          menuToggle.classList.remove("active");
+        });
+      });
+    </script>
+
   </body>
 </html>
