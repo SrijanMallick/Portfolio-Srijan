@@ -15,11 +15,14 @@
         margin: 0;
         padding: 0;
         scroll-behavior: smooth;
+        box-sizing: border-box;
       }
 
       body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
         background: linear-gradient(to right, #000033, #1a1a40);
-        display: block;
         color: white;
         font-family: "Poppins", sans-serif;
       }
@@ -27,7 +30,7 @@
       header {
         background: linear-gradient(90deg, #1e3c72, #2a5298);
         padding: 20px 0;
-        position: sticky;
+        position: static;
         top: 0;
         z-index: 1000;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -76,6 +79,7 @@
       }
 
       .cta-header {
+        display: inline-block;
         background: #ffdd57;
         color: #000033;
         padding: 10px 20px;
@@ -92,11 +96,23 @@
         transform: scale(1.1);
       }
 
+      .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      main {
+        flex: 1;
+      }
+
       .firstSection {
         display: flex;
         justify-content: space-around;
         align-items: center;
         margin: 80px 0;
+        height: 405px;
       }
 
       .firstSection > div {
@@ -113,7 +129,7 @@
       }
 
       .rightSection img {
-        width: 80%;
+        width: 90%;
         border-radius: 15px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
       }
@@ -138,7 +154,6 @@
         text-align: center;
         padding: 20px;
         background: rgba(4, 4, 4, 0.8);
-        margin-top: 50px;
       }
 
       footer a {
@@ -150,24 +165,72 @@
         color: lavender;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 1025px) {
         .firstSection {
           flex-direction: column;
-          align-items: center;
+          height: auto;
         }
 
         .firstSection > div {
           width: 90%;
           text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .leftSection {
+          font-size: 1.7rem;
+        }
+        .rightSection {
+          margin-top: 70px;
+        }
+
+        .rightSection img {
+          width: 90%;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background: rgba(30, 60, 114, 0.9);
+          width: 200px;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         nav ul {
           flex-direction: column;
           text-align: center;
+          padding: 10px 0;
         }
 
         nav ul li {
           margin: 10px 0;
+        }
+
+        nav ul li a {
+          font-size: 1rem;
+          padding: 10px;
+          display: block;
+          transition: all 0.3s;
+        }
+
+        nav ul::after {
+          content: "";
+          display: block;
+        }
+
+        .menu-toggle.active + nav {
+          display: flex;
+        }
+
+        .cta-header {
+          display: none;
         }
       }
 
@@ -187,16 +250,18 @@
     <header>
       <div class="header-container">
         <div class="logo">SRIJAN MALLICK</div>
+        <div class="menu-toggle">&#9776;</div>
         <nav>
           <ul>
-            <li><a href="Home.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="Experience.html">Experience</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
             <li><a href="Contact.html">Contact Me</a></li>
           </ul>
         </nav>
-        <a href="https://linkedin.com/in/your-profile" class="cta-header">Get in Touch</a>
+        <a href="https://linkedin.com/in/srijanmallick" class="cta-header" target="_blank">Let's Connect</a>
+
       </div>
     </header>
 
@@ -211,7 +276,7 @@
 
         <div class="rightSection">
           <img
-            src="image/pngtree-software-developer-in-colored-design-png-image_12964470-removebg-preview.png"
+            src="/srijanmallickpic2.jpg"
             alt="This is my Image"
           />
         </div>
@@ -220,9 +285,9 @@
 
     <footer>
       <p>
-        © 2025 Srijan Mallick | Follow me on
-        <a href="https://linkedin.com/in/your-profile">LinkedIn</a> and
-        <a href="https://github.com/your-profile">Instagram</a>.
+        Created by Srijan Mallick | Follow on
+        <a href="https://linkedin.com/in/SrijanMallick">LinkedIn</a> and
+        <a href="https://instagram.com/srijanmallick_">Instagram</a>.
       </p>
     </footer>
 
@@ -238,6 +303,21 @@
         typeSpeed: 50,
         backSpeed: 30,
         loop: true,
+      });
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("nav");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+      });
+
+      document.querySelectorAll("nav ul li a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.style.display = "none";
+          menuToggle.classList.remove("active");
+        });
       });
     </script>
   </body>
