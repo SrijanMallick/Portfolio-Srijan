@@ -26,7 +26,7 @@
       header {
         background: linear-gradient(90deg, #1e3c72, #2a5298);
         padding: 20px 0;
-        position: sticky;
+        position: static;
         top: 0;
         z-index: 1000;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -72,6 +72,31 @@
       nav ul li a:hover {
         color: #ffdd57;
         font-size: 1.1rem;
+      }
+
+      .cta-header {
+        display: inline-block;
+        background: #ffdd57;
+        color: #000033;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-left: 20px;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .cta-header:hover {
+        background: #ffd700;
+        transform: scale(1.1);
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: white;
       }
 
       .section {
@@ -161,7 +186,7 @@
         color: lavender;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 1025px) {
         .section {
           flex-direction: column;
           width: 90%;
@@ -177,13 +202,49 @@
           margin-left: 0;
         }
 
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background: rgba(30, 60, 114, 0.9);
+          width: 200px;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
         nav ul {
           flex-direction: column;
-          text-align: center;
+          text-align: left;
+          padding: 10px 0;
         }
 
         nav ul li {
           margin: 10px 0;
+        }
+
+        nav ul li a {
+          font-size: 1rem;
+          padding: 10px;
+          display: block;
+          transition: all 0.3s;
+        }
+
+        nav ul::after {
+          content: "";
+          display: block;
+        }
+
+        .menu-toggle.active + nav {
+          display: flex;
+        }
+
+        .cta-header {
+          display: none;
         }
       }
 
@@ -202,10 +263,11 @@
   <body>
     <header>
       <div class="header-container">
-        <div class="logo">Srijan Mallick</div>
+        <div class="logo">ABOUT ME</div>
+        <div class="menu-toggle">&#9776;</div>
         <nav>
           <ul>
-            <li><a href="Home.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="Experience.html">Experience</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
@@ -214,6 +276,7 @@
         </nav>
       </div>
     </header>
+
 
     <main>
       <!-- About Me Section -->
@@ -228,7 +291,7 @@
           </p>
         </div>
         <div class="imageContainer">
-          <img src="image/ABOUT ME 1.jpg" alt="Srijan Mallick Image" />
+          <img src="/srijanmallickpic2.jpg" alt="Srijan Mallick Image" />
         </div>
       </section>
 
@@ -243,7 +306,7 @@
           </p>
         </div>
         <div class="imageContainer">
-          <img src="image/nit agt.jpg" alt="Education" />
+          <img src="/nit agt.jpg" alt="Education" />
         </div>
       </section>
 
@@ -258,7 +321,7 @@
           </p>
         </div>
         <div class="imageContainer">
-          <img src="image/VJ Chauhan.jpg" alt="General Secretary NIT Agartala" />
+          <img src="/vijenderchauhan.jpg" alt="General Secretary NIT Agartala" />
         </div>
       </section>
 
@@ -272,17 +335,36 @@
           </p>
         </div>
         <div class="imageContainer">
-          <img src="image/_DSC1196.B-EGECKS.jpg" alt="Business Club" />
+          <img src="/bclub.jpg" alt="Business Club" />
         </div>
       </section>
     </main>
 
     <footer>
       <p>
-        © 2025 Srijan Mallick | Follow me on
-        <a href="https://linkedin.com/in/your-profile">LinkedIn</a> and
-        <a href="https://github.com/your-profile">GitHub</a>.
+        Created by Srijan Mallick | Follow me on
+        <a href="https://linkedin.com/in/SrijanMallick">LinkedIn</a> and
+        <a href="https://instagram.com/srijanmallick_">Instagram</a>.
       </p>
     </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("nav");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+      });
+
+      document.querySelectorAll("nav ul li a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.style.display = "none";
+          menuToggle.classList.remove("active");
+        });
+      });
+    </script>
   </body>
 </html>
